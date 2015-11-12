@@ -47,11 +47,11 @@ app.controller('TicketDetailController', function ($scope, TicketService) {
 });
 
 app.factory("Ticket", function ($resource) {
-    return $resource("http://localhost:8080/tickets/all");
+    return $resource("tickets/all");
 });
 
 app.factory('TicketUpdate', function ($resource) {
-    return $resource("http://localhost:8080/tickets/update",
+    return $resource("tickets/update",
         {id: '@id'}, {
             update: {
                 method: 'PUT'
@@ -60,7 +60,7 @@ app.factory('TicketUpdate', function ($resource) {
 });
 
 app.factory('TicketDelete', function ($resource) {
-    return $resource("http://localhost:8080/tickets/delete",
+    return $resource("tickets/delete",
         {id: '@id'}, {
             removeFromServer: {
                 method: 'DELETE'
@@ -69,7 +69,7 @@ app.factory('TicketDelete', function ($resource) {
 });
 
 app.factory('TicketCreate', function ($resource) {
-    return $resource("http://localhost:8080/tickets/create",
+    return $resource("tickets/create",
         {id: '@id'}, {
             createOnServer: {
                 method: 'POST'

@@ -1,0 +1,87 @@
+<div class="form-group">
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Name</label>
+        <div class="col-sm-9">
+            <input type="text"
+                   class="form-control"
+                   style="padding-top: 20px"
+                   name="name"
+                   ng-model="bugs.selectedTicket.name"
+                   ng-readonly="bugs.isFormDisabled"
+                   required="required"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Customer</label>
+
+        <div class="col-sm-9">
+            <input type="text"
+                   class="form-control"
+                   name="customerInfo"
+                   ng-model="bugs.selectedTicket.customerInfo"
+                   ng-readonly="bugs.isFormDisabled" required="required"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Owner</label>
+
+        <div class="col-sm-9">
+            <input type="text"
+                   class="form-control"
+                   name="createdBy"
+                   ng-model="bugs.selectedTicket.createdBy"
+                   ng-readonly="bugs.isFormDisabled"
+                   required/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">AssignedTo</label>
+
+        <div class="col-sm-9">
+            <input type="text"
+                   class="form-control"
+                   name="assignedTo"
+                   ng-model="bugs.selectedTicket.assignedTo"
+
+                   ng-readonly="bugs.isFormDisabled"/>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Status</label>
+
+        <div class="col-sm-9">
+            <select name="status"
+                    class="form-control"
+                    ng-model="bugs.selectedTicket.status"
+                    ng-disabled="bugs.isFormDisabled"
+                    ng-readonly="bugs.isFormDisabled">
+                <option value="New">New</option>
+                <option value="Open" selected="">Open</option>
+                <option value="Closed">Closed</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Comments</label>
+        <div class="col-sm-9">
+            <textarea type="text"
+                      class="form-control"
+                      name="comments"
+                      ng-model="bugs.selectedTicket.comments"
+                      ng-readonly="bugs.isFormDisabled"></textarea>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="buttons">
+            <button class="btn btn-primary center-block"
+                    type="submit"
+                    ng-disabled="bugs.isFormDisabled"
+                    ng-readonly="bugs.isFormDisabled">Save
+            </button>
+        </div>
+    </div>
+</div>

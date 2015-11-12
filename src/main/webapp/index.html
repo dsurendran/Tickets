@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ticketingSystemApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="components/css/bootstrap/bootstrap.css"/>-->
+    <link rel="stylesheet" href="components/css/bootstrap/themes/united.css"/>
+    <link rel="stylesheet" href="components/css/main.css"/>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Tickets</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container main-content">
+    <div class="row">
+        <div class="col-md-8" ng-controller="TicketListController">
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-inline well well-sm">
+                        <div class="form-group">
+                            <h4>List Of Tickets </h4>
+                        </div>
+                        <button class="btn btn-primary pull-right"
+                                ng-click="showCreateDialog()">Create
+                        </button>
+                    </form>
+
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Customer Info</th>
+                            <th>Assigned To</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr ng-repeat="ticket in bugs.tickets"
+                            ng-style="{
+                    'background-color' : ticket.id == bugs.selectedTicket.id ? 'lightgray' : ''
+                }"
+                            ng-click="selectTicket(ticket)"
+                        >
+                            <td> {{ticket.id}}</td>
+                            <td> {{ticket.name}}</td>
+                            <td> {{ticket.customerInfo}}</td>
+                            <td> {{ticket.assignedTo}}</td>
+                            <td> {{ticket.status}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" ng-controller="TicketDetailController">
+            <div class="panel panel-default">
+                <div class="panel-heading">Ticket Details
+                    <button class="btn btn-danger btn-sm pull-right"
+                            ng-click="remove()">
+                        Delete
+                    </button>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" ng-submit="save()">
+                       <ng-include src="'templates/form.html'"></ng-include>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="components/angular/angular.js"></script>
+<script src="components/angular/jcs-auto-validate.js"></script>
+<script src="components/angular/angular-resource.js"></script>
+<script src="components/angular/angular-strap.min.js"></script>
+<script src="components/angular/angular-strap.tpl.min.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>
